@@ -1,29 +1,20 @@
-require('dotenv').config()
+require('dotenv').config() // Accesses the environment variables from .env file at the root of the folder
 const express = require("express"),
+	createtables = require("./config/createtables.js"),
 	vogels = require('vogels'),
     app = express(),
     port = process.env.PORT,
     bodyParser = require("body-parser");
 
-// vogels.createTables({
-// 	'tasks': {readCapacity: 10, writeCapacity: 10}
-// }, function(err) {
-// 	if (err) {
-// 		console.log('Error creating tables: ', err);
-// 	} else {
-// 		console.log('Tables has been created');
-// 	}
-// });
+	createtables();
+
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
-// var routes = require('./api/routes/todoListRoutes');
-// routes(app);
+var routes = require('./api/routes/LRRoutes');
+routes(app);
 
 app.listen(port);
 
 console.log('RESTful API server started on: ' + port);
-
-
-
