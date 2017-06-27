@@ -4,7 +4,9 @@
   "description": "Starter kit",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --timeout 10000"
+    "test": "NODE_ENV=test mocha --timeout 10000",
+    "dev": "NODE_ENV=development pm2-dev start server.js",
+	"start": "NODE_ENV=production"
   },
   "author": "Ravikanth Andhavarapu",
   "license": "ISC",
