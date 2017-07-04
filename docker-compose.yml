@@ -2,8 +2,6 @@ version: "2"
 services:
   web:
     image: dynamo:latest
-    environment:
-      MONGO_URI: "mongodb://ravimongo:27017"
     ports:
       - "3000:3000"
     links:
