@@ -8,3 +8,9 @@ Install pm2 globally
 Create .env file and values of PORT etc into it or pass them as docker environment variables
 
 
+In docker file for production:
+global install pm2
+RUN npm start
+
+
+
