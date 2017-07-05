@@ -6,7 +6,8 @@
   "scripts": {
     "test": "NODE_ENV=test mocha --timeout 10000",
     "dev": "NODE_ENV=development pm2-dev start server.js",
-	"start": "NODE_ENV=production pm2 start server.js -i 0"
+    "localstart": "NODE_ENV=production pm2 start server.js -i 0",
+    "start": "NODE_ENV=production pm2-docker server.js -i 0"
   },
   "author": "Ravikanth Andhavarapu",
   "license": "ISC",
