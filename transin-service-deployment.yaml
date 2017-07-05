@@ -9,37 +9,52 @@ Parameters:
 
     EnvironmentName:
         Type: String
-        Default: staging
+        Default: <ENVIRONMENT_NAME>
+        AllowedValues:
+            - production
+            - staging
     
     ServiceName:
         Type: String
-        Default: auth
+        Default: <SERVICE_NAME>
 
     VPC:
         Description: The VPC that the ECS cluster is deployed to
         Type: AWS::EC2::VPC::Id
-        Default: vpc-ad107bc9
+        Default: vpc-ad107bc9 # Please use appropriate ids from the configurations
         
     Cluster:
         Description: Please provide the ECS Cluster ID that this service should run on
         Type: String
         Default: staging
+        AllowedValues:
+            - production
+            - staging
     
     Listener:
         Description: The Application Load Balancer listener to register with
         Type: String
         Default: arn:aws:elasticloadbalancing:ap-southeast-2:698747380200:listener/app/staging/9ec408b0ae7d77f6/866944cf5cce2d8d
-
+        # Please use appropriate ids from the configurations
+    
+    # Add the number of dockers you need for this service
     DesiredCount: 
         Description: How many instances of this task should we run across our cluster?
         Type: Number
         Default: 2
-    
+        
+    # Add the ALB path for this service
     Path: 
         Description: The path to register with the Application Load Balancer
         Type: String
         Default: /auth/*
+    
+    Port: 
+        Description: Container port to be mapped
+        Type: String
+        Default: 8080
 
+# Donot touch the things below unless necessary and u know what you are doing
 Resources:
 
     Service: 
@@ -91,24 +106,6 @@ Resources:
                     Options:
                         awslogs-group: !Ref AWS::StackName
                         awslogs-region: !Ref AWS::Region
-                # - Name: Postgres # Is this independent to this service?
-                #   Essential: true
-                #   Image: "postgres"
-                #   Memory: 128
-                #   Environment:
-                #       - Name: POSTGRES_DATABASE
-                #         Value: keycloak
-                #       - Name: POSTGRES_USER
-                #         Value: keycloak
-                #       - Name: POSTGRES_PASSWORD
-                #         Value: password
-                #       - Name: POSTGRES_ROOT_PASSWORD
-                #         Value: root_password
-                #   LogConfiguration:
-                #     LogDriver: awslogs
-                #     Options:
-                #         awslogs-group: !Ref AWS::StackName
-                #         awslogs-region: !Ref AWS::Region
 
     CloudWatchLogsGroup:
         Type: AWS::Logs::LogGroup
