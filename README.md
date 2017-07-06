@@ -1,7 +1,9 @@
 # Starter-kit-node
 Starter kit with node, express, docker to use with Transin Infrastructure
 
-# This starter kit uses two tutorials for setting up this:
+## Prerequisites
+
+## This starter kit uses two tutorials for setting up this:
 https://www.codementor.io/olatundegaruba/nodejs-restful-apis-in-10-minutes-q0sgsfhbd
 https://scotch.io/tutorials/test-a-node-restful-api-with-mocha-and-chai
 http://www.jyotman.xyz/post/logging-in-node.js-done-right
@@ -16,7 +18,7 @@ global install pm2
 RUN npm start
 
 
-How to run the docker?
+## How to run the docker?
 1. Clone the repo
 2. Check if it runs locally without using docker
 3. Build image from code using `docker build -t <Image Name> .`
