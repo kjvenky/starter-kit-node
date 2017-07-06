@@ -30,12 +30,12 @@ Parameters:
         AllowedValues:
             - production
             - staging
-    
+
+    # Please use appropriate ids from the configurations
     Listener:
         Description: The Application Load Balancer listener to register with
         Type: String
         Default: arn:aws:elasticloadbalancing:ap-southeast-2:698747380200:listener/app/staging/9ec408b0ae7d77f6/866944cf5cce2d8d
-        # Please use appropriate ids from the configurations
     
     # Add the number of dockers you need for this service
     DesiredCount: 
@@ -122,7 +122,7 @@ Resources:
             Matcher: 
                 HttpCode: 200-299
             HealthCheckIntervalSeconds: 300
-            HealthCheckPath: !Join ['',['/', !Ref ServiceName]]
+            HealthCheckPath: /
             HealthCheckProtocol: HTTP
             HealthCheckTimeoutSeconds: 5
             HealthyThresholdCount: 2
