@@ -39,3 +39,4 @@ RUN npm start
 1. Connect to ELastic Search Cluster
 2. Connect to RDS ?
 3. Connect to Kakfa 
+4. Connect to Redis (For using internal caching if needed)
