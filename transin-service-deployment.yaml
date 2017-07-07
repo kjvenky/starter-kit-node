@@ -18,11 +18,6 @@ Parameters:
         Type: String
         Default: <SERVICE_NAME>
 
-    VPC:
-        Description: The VPC that the ECS cluster is deployed to
-        Type: AWS::EC2::VPC::Id
-        Default: vpc-ad107bc9 # Please use appropriate ids from the configurations
-        
     Cluster:
         Description: Please provide the ECS Cluster ID that this service should run on
         Type: String
@@ -31,12 +26,6 @@ Parameters:
             - production
             - staging
 
-    # Please use appropriate ids from the configurations
-    Listener:
-        Description: The Application Load Balancer listener to register with
-        Type: String
-        Default: arn:aws:elasticloadbalancing:ap-southeast-2:698747380200:listener/app/staging/9ec408b0ae7d77f6/866944cf5cce2d8d
-    
     # Add the number of dockers you need for this service
     DesiredCount: 
         Description: How many instances of this task should we run across our cluster?
@@ -116,7 +105,8 @@ Resources:
     TargetGroup:
         Type: AWS::ElasticLoadBalancingV2::TargetGroup
         Properties:
-            VpcId: !Ref VPC
+            VpcId: 
+                Fn::ImportValue: !Sub "${EnvironmentName}-VPCID"
             Port: 80
             Protocol: HTTP
             Matcher: 
@@ -130,7 +120,8 @@ Resources:
     ListenerRule:
         Type: AWS::ElasticLoadBalancingV2::ListenerRule
         Properties:
-            ListenerArn: !Ref Listener
+            ListenerArn: 
+                Fn::ImportValue: !Sub "${EnvironmentName}-alb-listener"
             Priority: 7
             Conditions:
                 - Field: path-pattern
