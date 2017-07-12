@@ -8,7 +8,7 @@ const Lr = vogels.define('Lr', {
       schema : {
               id: vogels.types.uuid(),
               name    : Joi.string(),
-              created_date  : Joi.number().integer().min(1900).max(2018),
+              created_date  : Joi.number().integer().min(1900)
             },
 
       tableName: "lrs"
