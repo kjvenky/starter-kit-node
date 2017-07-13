@@ -1,7 +1,7 @@
 const vogels = require('vogels');
 const Joi = require('joi');
 
-const Lr = vogels.define('Lr', {
+const LoadReceipt = vogels.define('LoadReceipt', {
       hashKey : 'id',
       timestamps : true,
 
@@ -11,7 +11,8 @@ const Lr = vogels.define('Lr', {
               created_date  : Joi.number().integer().min(1900)
             },
 
-      tableName: "lrs"
+      tableName: "load_receipts"
+    // Use full names, lower case and separated by hyphen for table names. Dynamodb has no namespacing. This is very crucial
 });
 
-module.exports = Lr;
+module.exports = LoadReceipt;

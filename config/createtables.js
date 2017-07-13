@@ -9,7 +9,7 @@ module.exports = function () {
 
     const Lr = require("../api/models/LRModel");
 	vogels.createTables({
-		'lrs': {readCapacity: 10, writeCapacity: 10}
+		'load_receipts': {readCapacity: 10, writeCapacity: 10}
 	}, function(err) {
 		if (err) {
 			console.log('Error creating tables: ', err);
