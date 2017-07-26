@@ -7,9 +7,11 @@ Starter kit with node, express, docker to use with Transin Infrastructure
 
 ## Setup
 1. Clone this starter kit. `git clone https://gitlab.com/transin/starter-kit-node`
-2. 
+2. Run `npm install`
+3. Remove the `.git` folder using `rm .git` 
 
 ## How to use Authentication for your Routes
+* We are using keycloak (Enterprise level auth platfrom) for all auth purposes. [Link](https://keycloak.gitbooks.io/documentation/authorization_services/index.html) 
 
 ## How to run the docker?
 1. Clone the repo
@@ -21,7 +23,7 @@ Starter kit with node, express, docker to use with Transin Infrastructure
 1. We are using `winston` and `morgon` for logging
 2. Please read [this link](http://www.jyotman.xyz/post/logging-in-node.js-done-right) before proceeding furthur.
 3. All server logs can be seen in cloud-watch in AWS, in the foleder `SERVICE_NAME-service`
-
+4. Deployment automatically creates a log folder in AWS Cloudwatch. You can into your AWS account and check the logs.
 
 ## This starter kit uses two tutorials for setting up this:
 https://www.codementor.io/olatundegaruba/nodejs-restful-apis-in-10-minutes-q0sgsfhbd
