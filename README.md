@@ -19,6 +19,24 @@ Starter kit with node, express, docker to use with Transin Infrastructure
 3. Build image from code using `docker build -t <Image Name> .`
 4. Run the image using `docker run -it -p 3000:3000 -e PORT=3000 -e AWS_ACCESS_KEY="accesskey" -e AWS_SECRET_KEY="secretkey" --name <container name you want> <Image Name>` 
 
+## Using persistant DB for your service
+
+We are using PostGres hosted on AWS RDS for all RDMS purposes and DynamoDB for all nosql purposes.
+
+## Shared file system for your services (docker volumes)
+
+All ECS instances have EFS integrated to it and mounted on `/efs`. 
+
+## Kafka - Event driven infrastructure
+
+At the heart of our entire infrastructure we have Kafka to which you can read and write. 
+
+## Caching locally within your service
+
+We are currently using redis as caching mechanism for all the services.
+
+## Integrating with Elastic search
+
 ## Logging
 1. We are using `winston` and `morgon` for logging
 2. Please read [this link](http://www.jyotman.xyz/post/logging-in-node.js-done-right) before proceeding furthur.
@@ -36,9 +54,3 @@ Update the .env details locally
 In docker file for production:
 global install pm2
 RUN npm start
-
-# ToDos
-1. Connect to ELastic Search Cluster
-2. Connect to RDS ?
-3. Connect to Kakfa 
-4. Connect to Redis (For using internal caching if needed)
