@@ -1,9 +1,12 @@
 # Starter-kit-node
-Starter kit with node, express, docker to use with Transin Infrastructure
+Starter kit with node, express, docker to use with Truce platform
 
 ## Prerequisites
-1. Configure AWS CLI. 
+1. Configure [AWS CLI](https://slack-files.com/T3DBSSN8P-F6BPNCFTM-3d2d925364). 
 2. Install PM2 globally. `npm install pm2 -g`
+
+## Setup linting
+Read [this document](https://slack-files.com/T3DBSSN8P-F6BPNCFTM-3d2d925364) to set up linting in Sublime. 
 
 ## Setup
 1. Clone this starter kit. `git clone https://gitlab.com/transin/starter-kit-node`
@@ -43,9 +46,21 @@ We are currently using redis as caching mechanism for all the services.
 3. All server logs can be seen in cloud-watch in AWS, in the foleder `SERVICE_NAME-service`
 4. Deployment automatically creates a log folder in AWS Cloudwatch. You can into your AWS account and check the logs.
 
+## Codeguide lines
+
+## CI/CD Guidelines
+
+## How to deploy your service to AWS
+
 ## This starter kit uses two tutorials for setting up this:
 https://www.codementor.io/olatundegaruba/nodejs-restful-apis-in-10-minutes-q0sgsfhbd
 https://scotch.io/tutorials/test-a-node-restful-api-with-mocha-and-chai
+
+
+
+
+
+
 
 Copy the .env.sample to create a .env file
 `cp .env.sample .env`
