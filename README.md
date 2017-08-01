@@ -32,7 +32,8 @@ All ECS instances have EFS integrated to it and mounted on `/efs`.
 
 ## Kafka - Event driven infrastructure
 
-At the heart of our entire infrastructure we have Kafka to which you can read and write. 
+At the heart of our entire infrastructure we have Kafka to which you can read and write. We are using `kafka-node` module for integration. 
+Read more about how to connect kafka to our system [here](https://www.npmjs.com/package/kafka-node).
 
 ## Caching locally within your service
 
